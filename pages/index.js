@@ -2,7 +2,7 @@ import AddBtn from "../components/AddBtn"
 import Grid from "../components/Grid"
 import TopBar from "../components/TopBar"
 
-const clientsRoute = "/api/clients";
+const clientsRoute = process.env + "/api/clients";
 
 function Home({clientes}) {
   return (
@@ -14,14 +14,11 @@ function Home({clientes}) {
   )
 }
 
-export const getServerSideProps = async() => {
+export const getStaticProps = async() => {
 
   const res = await fetch(clientsRoute);
   const data = await res.json();
 
-  if(!data) {
-    return { notFound: true }
-  }
   return {
     props: {clientes: data}
   }
