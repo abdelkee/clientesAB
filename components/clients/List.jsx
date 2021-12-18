@@ -1,12 +1,12 @@
-// import Item from "./operations/Item"
+import Item from "./operations/Item"
 
 
-// function List({operations}) {
-//     return (
-//         <div className="list-container">
-//             {operations.map(op => <Item key={op._id} operation={op}/>)}            
-//         </div>
-//     )
-// }
+function List({operations}) {
+    return (
+        <div className="list-container">
+            {operations.map(op => <Item key={op._id} operation={op}/>)}            
+        </div>
+    )
+}
 
-// export default List
+export default List

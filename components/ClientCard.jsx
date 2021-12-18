@@ -3,7 +3,7 @@ import Avatar from 'react-nice-avatar';
 
 function ClientCard({cliente}) {
     return (
-        <Link href={'/'}>
+        <Link href={cliente._id}>
             <a>
                 <div className="card-container">
                     <Avatar style={{width: '75%', height: '50%'}} className="card-image" sex='woman' hairStyle='womanLong' isGradient={true}/>

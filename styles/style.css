@@ -11,7 +11,6 @@
 body {
   width: 100%;
   height: 100%;
-  background-color: #ECE6FF;
 }
 
 a {
@@ -23,6 +22,7 @@ a {
   min-height: 100vh;
   max-width: 416px;
   margin: 0 auto;
+  background-color: #ECE6FF;
 }
 
 .topbar-container {
