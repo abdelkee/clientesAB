@@ -2,8 +2,8 @@ import AddBtn from "../components/AddBtn"
 import Grid from "../components/Grid"
 import TopBar from "../components/TopBar"
 
-// export const clientsRoute = "https://clientes-ab.vercel.app/";
-export const clientsRoute = "http://localhost:3000/";
+export const clientsRoute = "https://clientes-ab.vercel.app/";
+// export const clientsRoute = "http://localhost:3000/";
 
 
 function Home({clientes}) {
