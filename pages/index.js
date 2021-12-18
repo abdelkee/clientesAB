@@ -14,10 +14,14 @@ function Home({clientes}) {
   )
 }
 
-export const getStaticProps = async() => {
+export const getServerSideProps = async() => {
 
   const res = await fetch(clientsRoute);
   const data = await res.json();
+
+  if(!data) {
+    return { notFound: true }
+  }
   return {
     props: {clientes: data}
   }
