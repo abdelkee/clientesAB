@@ -6,17 +6,13 @@ function AddBtn({type}) {
     function addClient() {
 
     }
-    
-    function addOperation() {
-        
-    }
 
     return (
-        <div 
-            className={`add-btn-container ${type !== 'client' && 'operation'}`}
-            onClick={type === 'client' ? addClient : addOperation}>
+        <button 
+            className={`add-btn-container`}
+            onClick={addClient}>
                 <BiPlus size={26} style={{fill: 'white'}}/>
-        </div>
+        </button>
     )
 }
 

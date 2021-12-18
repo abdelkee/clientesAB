@@ -3,8 +3,8 @@ import List from '../components/clients/List';
 import OperationBtn from '../components/clients/OperationBtn';
 import TopBar from '../components/TopBar';
 
-export const clientsRoute = "https://clientes-ab.vercel.app/";
-// export const clientsRoute = "http://localhost:3000/";
+// export const clientsRoute = "https://clientes-ab.vercel.app/";
+export const clientsRoute = "http://localhost:3000/";
 
 export async function getStaticPaths() {
     const clientsRes = await fetch(clientsRoute + 'api/clients');

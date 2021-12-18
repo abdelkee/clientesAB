@@ -122,37 +122,6 @@ a {
   z-index: 2;
 }
 
-.operation {
-  background-color: #511281;
-  width: 100px;
-  height: 40px;
-  border-radius: 10px;
-}
-
-.Compro, .pago {
-  bottom: 85px;
-  padding: 0 8px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  gap: 8px;
-}
-
-.Compro h4, .pago h4 {
-  color: white;
-  font-weight: 400;
-}
-
-.pago {
-  bottom: 145px;
-}
-
 .form-blur {
   position: fixed;
   left: 50%;

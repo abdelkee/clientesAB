@@ -14,29 +14,3 @@
     z-index: 2;
 
 }
-
-.operation {
-    background-color: $secondary-color;
-    width: 100px;
-    height: 40px;
-    border-radius: 10px;
-}
-
-.Compro, .pago {
-    bottom: 85px;
-    padding: 0 8px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 8px;
-
-    h4 {
-        color: white;
-        font-weight: 400;
-    }
-}
-
-.pago {
-    bottom: 85px + 60px;
-}
-
