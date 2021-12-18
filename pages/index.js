@@ -2,7 +2,7 @@ import AddBtn from "../components/AddBtn"
 import Grid from "../components/Grid"
 import TopBar from "../components/TopBar"
 
-const clientsRoute = process.env + "/api/clients";
+export const clientsRoute = process.env.NODE_ENV === "development" ? process.env.SERVER_URI : `https://${process.env.VERCEL_URL}`;
 
 function Home({clientes}) {
   return (
@@ -14,9 +14,9 @@ function Home({clientes}) {
   )
 }
 
-export const getStaticProps = async() => {
+export const getServerSideProps = async() => {
 
-  const res = await fetch(clientsRoute);
+  const res = await fetch(clientsRoute + '/api/clients');
   const data = await res.json();
 
   return {
