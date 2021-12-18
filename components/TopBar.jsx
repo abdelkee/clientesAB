@@ -1,4 +1,4 @@
-import {BiHeartCircle, BiHomeHeart} from 'react-icons/bi';
+import {BiHomeHeart} from 'react-icons/bi';
 import {useRouter} from 'next/router';
 
 function TopBar({name, amount}) {

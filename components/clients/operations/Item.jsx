@@ -1,7 +1,7 @@
 
 function Item({operation}) {
 
-    const {tipo, title, monto, modo, createdAt} = operation;
+    const {tipo, title, monto, createdAt} = operation;
     return (
         <div className="item-container">
             <div className="title-tipo">

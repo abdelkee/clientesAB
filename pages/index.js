@@ -2,7 +2,7 @@ import AddBtn from "../components/AddBtn"
 import Grid from "../components/Grid"
 import TopBar from "../components/TopBar"
 
-const clientsRoute = "http://localhost:3000/api/clients"
+const clientsRoute = "http://localhost:3000/api/clients";
 
 function Home({clientes}) {
   return (

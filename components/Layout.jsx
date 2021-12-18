@@ -1,4 +1,3 @@
-import Form from "./Form"
 
 function Layout({children}) {
     return (
