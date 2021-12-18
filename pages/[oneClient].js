@@ -3,7 +3,7 @@ import List from '../components/clients/List';
 import OperationBtn from '../components/clients/OperationBtn';
 import TopBar from '../components/TopBar';
 
-const clientsPath = "http://localhost:3000/api/clients/";
+const clientsPath = "/api/clients/";
 
 export async function getStaticPaths() {
     const clientsRes = await fetch(clientsPath);
