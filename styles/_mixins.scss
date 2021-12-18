@@ -1,0 +1,23 @@
+
+@mixin flex-between($direction: row, $align: center) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: space-between;
+}
+
+@mixin position-center($type) {
+    position: $type;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin grid-style($temp) {
+    padding: 20px;
+    margin-bottom: 80px;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: $temp;
+    gap: 12px;
+}

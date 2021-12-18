@@ -1,0 +1,34 @@
+
+.item-container {
+    @include flex-between;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    box-shadow: $form-shadow;
+    
+    h3 {
+        font-size: 1.3rem;
+        color: $accent-color;
+    }
+}
+
+.title-tipo {
+    @include flex-between(column, flex-start);
+    gap: 8px;
+}
+
+.tipo {
+    padding: 2px 8px;
+    display: inline-block;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+}
+
+.compro {
+    background-color: $Compro-color;
+}
+
+.pago {
+    background-color: $pago-color;
+}
