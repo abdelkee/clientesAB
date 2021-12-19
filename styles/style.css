@@ -122,6 +122,21 @@ a {
   z-index: 2;
 }
 
+.operation-btn-container {
+  border-radius: 8px;
+  background-color: #21094E;
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  -webkit-box-shadow: #26394d 0px 20px 30px -10px;
+          box-shadow: #26394d 0px 20px 30px -10px;
+  position: fixed;
+  bottom: 25px;
+  right: 10%;
+  z-index: 2;
+  padding: 6px 12px;
+}
+
 .form-blur {
   position: fixed;
   left: 50%;
@@ -176,8 +191,17 @@ a {
   place-content: center;
 }
 
-.form-container h2 {
+.form-container h2, .form-container label, .form-container h4 {
   color: white;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.form-container h3 {
+  color: gainsboro;
+  margin-top: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid gainsboro;
 }
 
 .form-container input {
@@ -201,6 +225,25 @@ a {
   background-color: #4CA1A3;
   font-weight: 500;
   letter-spacing: 1px;
+  margin-top: 12px;
+}
+
+.radio-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 80%;
+  padding: 8px 12px;
 }
 
 .list-container {

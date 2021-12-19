@@ -1,6 +1,7 @@
-import AddBtn from '../components/AddBtn';
+import { useState } from 'react';
 import List from '../components/clients/List';
 import OperationBtn from '../components/clients/OperationBtn';
+import OperationForm from '../components/clients/operations/OperationForm';
 import TopBar from '../components/TopBar';
 
 export const clientsRoute = "https://clientes-ab.vercel.app/";
@@ -35,13 +36,14 @@ export async function getStaticProps({params}) {
 
 function clientStatus({singleClient}) {
 
+    const [opFormVisibility, setOpFormVisibility] = useState(false);
+
     return (
         <div>
             <TopBar name={singleClient.cliente} amount={55.00}/>
             <List operations={singleClient.operation}/>
-            <AddBtn/>
-            <OperationBtn type={'Compro'}/>
-            <OperationBtn type={'pago'}/>
+            <OperationBtn setOpFormVisibility={setOpFormVisibility}/>
+            {opFormVisibility && <OperationForm singleClient={singleClient} setOpFormVisibility={setOpFormVisibility}/>}
         </div>
     )
 }

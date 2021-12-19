@@ -1,10 +1,7 @@
 import { BiPlus } from "react-icons/bi";
-import { useContext } from "react";
-import {FormContext} from './context/FormContext';
 
-function AddBtn() {
+function AddBtn({setFormVisibility}) {
 
-    const {setFormVisibility} = useContext(FormContext);
     return (
         <button 
             className={`add-btn-container`}

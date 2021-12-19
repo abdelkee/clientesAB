@@ -1,0 +1,14 @@
+
+.operation-btn-container {
+    border-radius: 8px;
+    background-color: $primary-color;
+    display: grid;
+    place-content: center;
+    box-shadow: $button-shadow;
+    position: fixed;
+    bottom: 25px;
+    right: 10%;
+    z-index: 2;
+    padding: 6px 12px;
+
+}

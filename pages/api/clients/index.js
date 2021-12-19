@@ -24,7 +24,7 @@ export default async function handler(req, res) {
           try {  
             const response = await new cliente(req.body).save();
             if(!response) return res.json({response: 'failed'});
-            return res.json({response: 'Client created'});
+            return res.json('Created');
     
           } catch (error) {
               return res.json({el_error: error.message});

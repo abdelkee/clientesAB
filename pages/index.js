@@ -1,5 +1,6 @@
+import { useState } from "react";
+import ClientForm from '../components/ClientForm';
 import AddBtn from "../components/AddBtn"
-import Form from "../components/ClientForm";
 import Grid from "../components/Grid"
 import TopBar from "../components/TopBar"
 
@@ -7,11 +8,15 @@ export const clientsRoute = "https://clientes-ab.vercel.app/";
 // export const clientsRoute = "http://localhost:3000/";
 
 function Home({clientes}) {
+
+  const [formVisibility, setFormVisibility] = useState(false);
+
   return (
     <div>
       <TopBar name={''} amount={1.00}/>
       <Grid clientes={clientes}/>
-      <AddBtn/>
+      <AddBtn setFormVisibility={setFormVisibility}/>
+      {formVisibility && <ClientForm setFormVisibility={setFormVisibility}/>}
     </div>
   )
 }

@@ -1,16 +1,15 @@
 import { useState } from "react"
 import ClientForm from "./ClientForm"
+import OperationForm from "./clients/operations/OperationForm";
 import {FormContext} from './context/FormContext';
 
 function Layout({children}) {
 
-    const [formVisibility, setFormVisibility] = useState(false);
 
     return (
-        <FormContext.Provider value={{setFormVisibility}}>
+        <FormContext.Provider value={''}>
             <div className="layout-container">
                 {children}
-                {formVisibility && <ClientForm/>}
             </div>
         </FormContext.Provider>
     )

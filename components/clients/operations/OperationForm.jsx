@@ -4,9 +4,9 @@ import { BiMessageAltX } from "react-icons/bi";
 export const clientsRoute = "https://clientes-ab.vercel.app/";
 // export const clientsRoute = "http://localhost:3000/";
 
-function ClientForm({setFormVisibility}) {
-    const [clientName, setClientName] = useState('');
-    const [operation, setOperation] = useState({title: '', tipo: 'Compro', monto: 0, modo: '', operationDate: new Date().toLocaleDateString()});
+function OperationForm({setOpFormVisibility, singleClient}) {
+    const [operation, setOperation] = useState({title: '', tipo: '', monto: 0, modo: '', operationDate: new Date().toLocaleDateString()});
+    const clientName = singleClient.cliente;
 
     function handleOperation(e) {
         const {name, value} = e.target;
@@ -16,7 +16,7 @@ function ClientForm({setFormVisibility}) {
         }));
     }
 
-    async function createClient() {
+    async function anotarOperacion() {
         const body = {
             cliente: clientName,
             operation: operation
@@ -29,23 +29,41 @@ function ClientForm({setFormVisibility}) {
         }
 
         const response = await fetch(clientsRoute + 'api/clients', options);
-        setFormVisibility(false);
+        setOpFormVisibility(false);
     }
 
     return (
         <div className="form-blur">
             <div className="form-container">
 
-                <span onClick={() => setFormVisibility(false)}>
+                <span onClick={() => setOpFormVisibility(false)}>
                     <BiMessageAltX size={30} fill="white"/>
                 </span>
-                <h2>Nuevo cliente</h2>
-                <input
-                    type="text"
-                    placeholder="Nombre"
-                    name="cliente"
-                    onChange={(e) => setClientName(e.target.value)} />
-                <h3>Primera compra</h3>
+                <div>
+                    <h2>Nueva Operacion</h2>
+                    <h4>{`De ${clientName}`}</h4>
+                </div>
+
+                {/* Radio Tipo container */}
+                <div className="radio-container">
+                    <div>
+                        <label>Compro</label>
+                        <input 
+                            type="radio"
+                            name="tipo"
+                            value="Compro"
+                            onChange={(e) => handleOperation(e)} />
+                    </div>
+                    <div>
+                        <label>Pago</label>
+                        <input 
+                            disabled={operation.modo === 'Fiado' && true}
+                            type="radio"
+                            name="tipo"
+                            value="Pago"
+                            onChange={(e) => handleOperation(e)} />
+                    </div>
+                </div>
 
                 <input
                     type="text"
@@ -69,6 +87,15 @@ function ClientForm({setFormVisibility}) {
                             onChange={(e) => handleOperation(e)} />
                     </div>
                     <div>
+                        <label>Fiado</label>
+                        <input 
+                            disabled={operation.tipo === 'Pago' && true}
+                            type="radio"
+                            name="modo"
+                            value="Fiado"
+                            onChange={(e) => handleOperation(e)} />
+                    </div>
+                    <div>
                         <label>Banco</label>
                         <input 
                             type="radio"
@@ -76,21 +103,14 @@ function ClientForm({setFormVisibility}) {
                             value="Banco"
                             onChange={(e) => handleOperation(e)} />
                     </div>
-                    <div>
-                        <label>Fiado</label>
-                        <input 
-                            type="radio"
-                            name="modo"
-                            value="Fiado"
-                            onChange={(e) => handleOperation(e)} />
-                    </div>
+                    
                 </div>
                 
-                <button onClick={createClient}>Crear Cliente</button>
+                <button onClick={anotarOperacion}>Anotar</button>
 
             </div>
         </div>
     )
 }
 
-export default ClientForm
+export default OperationForm
