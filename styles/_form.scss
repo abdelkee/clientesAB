@@ -11,7 +11,7 @@
     width: 100%;
     height: 100vh;
     backdrop-filter: blur(8px);
-    z-index: 3;
+    z-index: 10;
 }
 
 .form-container {
@@ -23,10 +23,28 @@
     border-radius: 8px;
     box-shadow: $form-shadow;
     gap: 16px;
-    z-index: 4;
+    z-index: 12;
 
-    h2 {
+    span {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        border-radius: 8px;
+        width: 32px;
+        height: 32px;
+        display: grid;
+        place-content: center;
+    }
+
+    h2, label {
         color: white;
+    }
+
+    h3 {
+        color: gainsboro;
+        margin-top: 12px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid gainsboro;   
     }
 
     input {
@@ -42,6 +60,15 @@
         @include input-button;
         color: white;
         background-color: $accent-color;
+        font-weight: 500;
+        letter-spacing: 1px;
+        margin-top: 12px
     }
 
+}
+
+.radio-container {
+    @include flex-between;
+    width: 80%;
+    padding: 8px 12px;
 }

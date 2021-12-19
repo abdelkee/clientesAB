@@ -3,8 +3,8 @@ import List from '../components/clients/List';
 import OperationBtn from '../components/clients/OperationBtn';
 import TopBar from '../components/TopBar';
 
-// export const clientsRoute = "https://clientes-ab.vercel.app/";
-export const clientsRoute = "http://localhost:3000/";
+export const clientsRoute = "https://clientes-ab.vercel.app/";
+// export const clientsRoute = "http://localhost:3000/";
 
 export async function getStaticPaths() {
     const clientsRes = await fetch(clientsRoute + 'api/clients');
@@ -24,22 +24,21 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({params}) {
 
-    const opRes = await fetch(clientsRoute + 'api/clients/' + params.oneClient + '/operations');
+    const res = await fetch(clientsRoute + 'api/clients/' + params.oneClient);
 
-    const opData = await opRes.json();
+    const singleClient = await res.json();
 
     return {
-        props: { clientOperations: opData }
+        props: { singleClient: singleClient }
     }
 }
 
-function clientStatus({clientOperations}) {
+function clientStatus({singleClient}) {
 
-    const clt = clientOperations[0];
     return (
         <div>
-            <TopBar name={clt.cliente} amount={55.00}/>
-            <List operations={clientOperations}/>
+            <TopBar name={singleClient.cliente} amount={55.00}/>
+            <List operations={singleClient.operation}/>
             <AddBtn/>
             <OperationBtn type={'Compro'}/>
             <OperationBtn type={'pago'}/>

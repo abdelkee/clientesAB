@@ -17,15 +17,32 @@ export default async function handler(req, res) {
         }
         
       case "POST":
-        try {  
-          const response = await new cliente(req.body).save();
-          if(!response) return res.json({response: 'failed'});
-          res.json({response: 'created'});
-  
-        } catch (error) {
-            res.json({el_error: error.message});
+
+        // console.log('cl',req.body.operation);
+        const client = await cliente.find({cliente: req.body.cliente});
+        if(client.length === 0) {
+          try {  
+            const response = await new cliente(req.body).save();
+            if(!response) return res.json({response: 'failed'});
+            return res.json({response: 'Client created'});
+    
+          } catch (error) {
+              return res.json({el_error: error.message});
+          }
         }
-      
+
+        const clientOps = client[0].operation;
+        const newOps = [...clientOps, req.body.operation];
+
+        try {
+          const response = await cliente.findOneAndUpdate({cliente: req.body.cliente}, {operation: newOps})
+          if(!response) return res.json({response: 'failed'});
+          return res.json({response: 'Operation added'});
+
+        } catch (error) {
+          return res.json({el_error: error.message});
+        }
+
       default:
         return res.json('method not found');
     }

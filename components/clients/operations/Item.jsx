@@ -1,7 +1,7 @@
 
 function Item({operation}) {
 
-    const {tipo, title, monto, createdAt} = operation;
+    const {tipo, title, monto, operationDate} = operation;
     return (
         <div className="item-container">
             <div className="title-tipo">
@@ -11,7 +11,7 @@ function Item({operation}) {
             
             <div>
                 <h3>$ {monto.toFixed(2)}</h3>
-                <h4>{createdAt.slice(0,10)}</h4>
+                <h4>{operationDate}</h4>
             </div>
 
         </div>
