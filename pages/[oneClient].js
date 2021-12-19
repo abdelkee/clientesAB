@@ -34,7 +34,7 @@ export async function getStaticProps({params}) {
     }
 }
 
-function clientStatus({singleClient}) {
+function ClientStatus({singleClient}) {
 
     const [opFormVisibility, setOpFormVisibility] = useState(false);
 
@@ -48,4 +48,4 @@ function clientStatus({singleClient}) {
     )
 }
 
-export default clientStatus
+export default ClientStatus
