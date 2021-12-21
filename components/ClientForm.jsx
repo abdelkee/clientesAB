@@ -3,9 +3,6 @@ import { useState } from "react";
 import { BiMessageAltX } from "react-icons/bi";
 import { clientsRoute } from "../utils/clientsRoute";
 
-// export const clientsRoute = "https://clientes-ab.vercel.app/";
-// export const clientsRoute = "http://localhost:3000/";
-
 function ClientForm({setFormVisibility}) {
     const router = useRouter();
     const [clientName, setClientName] = useState('');

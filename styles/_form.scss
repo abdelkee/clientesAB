@@ -35,12 +35,18 @@
         height: 32px;
         display: grid;
         place-content: center;
+
     }
 
     h2, label, h4 {
         color: white;
         text-align: center;
         letter-spacing: 1px;
+    }
+
+    .actualizar-op {
+        background-color: $accent-color;
+        padding: 4px 14px;
     }
 
     h3 {
@@ -70,6 +76,10 @@
 
         &:disabled {
             background-color: gray;
+        }
+
+        &:focus {
+            transform: scale(0.9);
         }
     }
 

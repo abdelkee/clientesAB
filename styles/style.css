@@ -47,7 +47,6 @@ a {
   top: 0;
   width: 100%;
   height: 70px;
-  border-bottom: 2px solid #A5E1AD;
   background-color: #21094E;
   z-index: 1;
 }
@@ -69,6 +68,10 @@ a {
   border-radius: 0 50% 50% 0;
   background-color: #4CA1A3;
   border: none;
+}
+
+.home-icon:focus {
+  background-color: #A5E1AD;
 }
 
 .grid-container {
@@ -122,8 +125,8 @@ a {
 
 .add-btn-container {
   border: none;
-  width: 50px;
-  height: 50px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   background-color: #21094E;
   display: -ms-grid;
@@ -137,6 +140,10 @@ a {
   -webkit-transform: translateX(50%);
           transform: translateX(50%);
   z-index: 2;
+}
+
+.add-btn-container:focus {
+  background-color: #511281;
 }
 
 .operation-btn-container {
@@ -154,7 +161,11 @@ a {
   -webkit-transform: translateX(340%);
           transform: translateX(340%);
   z-index: 2;
-  padding: 6px 12px;
+  padding: 8px 14px;
+}
+
+.operation-btn-container:focus {
+  background-color: #511281;
 }
 
 .form-blur {
@@ -218,6 +229,11 @@ a {
   letter-spacing: 1px;
 }
 
+.form-container .actualizar-op {
+  background-color: #4CA1A3;
+  padding: 4px 14px;
+}
+
 .form-container h3 {
   color: gainsboro;
   margin-top: 12px;
@@ -253,6 +269,11 @@ a {
 
 .form-container button:disabled {
   background-color: gray;
+}
+
+.form-container button:focus {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 
 .radio-container {

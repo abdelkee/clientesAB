@@ -11,6 +11,10 @@
     right: 50%;
     transform: translateX(340%);
     z-index: 2;
-    padding: 6px 12px;
+    padding: 8px 14px;
+
+    &:focus {
+        background-color: $secondary-color;
+    }
 
 }

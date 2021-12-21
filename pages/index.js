@@ -5,9 +5,6 @@ import Grid from "../components/Grid"
 import TopBar from "../components/TopBar"
 import { clientsRoute } from "../utils/clientsRoute";
 
-// const clientsRoute = "https://clientes-ab.vercel.app/";
-// const clientsRoute = "http://localhost:3000/";
-
 function Home({clientes}) {
 
   const [formVisibility, setFormVisibility] = useState(false);

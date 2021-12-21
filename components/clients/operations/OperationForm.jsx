@@ -4,9 +4,6 @@ import { BiMessageAltX } from "react-icons/bi";
 import { FormContext } from "../../context/FormContext";
 import { clientsRoute } from "../../../utils/clientsRoute";
 
-// export const clientsRoute = "https://clientes-ab.vercel.app/";
-// export const clientsRoute = "http://localhost:3000/";
-
 function OperationForm({singleClient}) {
     const router = useRouter();
     const {isNewOperation, setOpFormVisibility, operationId, setOperationId} = useContext(FormContext);
@@ -51,7 +48,7 @@ function OperationForm({singleClient}) {
                     <BiMessageAltX size={30} fill="white"/>
                 </span>
                 <div>
-                    {isNewOperation ? <h2>Nueva Operacion</h2> : <h2>Editar Operacion</h2>}
+                    {isNewOperation ? <h2>Nueva Operacion</h2> : <h2 className="actualizar-op">Editar Operacion</h2>}
                     <h4>{`De ${singleClient.cliente}`}</h4>
                 </div>
 
