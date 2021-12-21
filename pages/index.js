@@ -22,7 +22,7 @@ function Home({clientes}) {
   )
 }
 
-export const getStaticProps = async() => {
+export const getServerSideProps = async() => {
 
   const res = await fetch(clientsRoute + 'api/clients');
   const data = await res.json();

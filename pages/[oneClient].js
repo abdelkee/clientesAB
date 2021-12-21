@@ -6,9 +6,6 @@ import { FormContext } from '../components/context/FormContext';
 import TopBar from '../components/TopBar';
 import { clientsRoute } from "../utils/clientsRoute";
 
-// export const clientsRoute = "https://clientes-ab.vercel.app/";
-// export const clientsRoute = "http://localhost:3000/";
-
 export async function getStaticPaths() {
     const clientsRes = await fetch(clientsRoute + 'api/clients');
     const clientsData = await clientsRes.json();
