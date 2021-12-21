@@ -4,8 +4,9 @@ import OperationBtn from '../components/clients/OperationBtn';
 import OperationForm from '../components/clients/operations/OperationForm';
 import { FormContext } from '../components/context/FormContext';
 import TopBar from '../components/TopBar';
+import { clientsRoute } from "../utils/clientsRoute";
 
-export const clientsRoute = "https://clientes-ab.vercel.app/";
+// export const clientsRoute = "https://clientes-ab.vercel.app/";
 // export const clientsRoute = "http://localhost:3000/";
 
 export async function getStaticPaths() {

@@ -2,8 +2,9 @@ import { useRouter } from "next/router";
 import { useContext, useState } from "react";
 import { BiMessageAltX } from "react-icons/bi";
 import { FormContext } from "../../context/FormContext";
+import { clientsRoute } from "../../../utils/clientsRoute";
 
-export const clientsRoute = "https://clientes-ab.vercel.app/";
+// export const clientsRoute = "https://clientes-ab.vercel.app/";
 // export const clientsRoute = "http://localhost:3000/";
 
 function OperationForm({singleClient}) {

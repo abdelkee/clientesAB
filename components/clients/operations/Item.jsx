@@ -2,8 +2,9 @@ import { useContext, useState } from 'react';
 import {BiPencil, BiTrashAlt} from 'react-icons/bi';
 import {useRouter} from "next/router";
 import { FormContext } from '../../context/FormContext';
+import { clientsRoute } from "../../../utils/clientsRoute";
 
-const clientsRoute = "https://clientes-ab.vercel.app/";
+// const clientsRoute = "https://clientes-ab.vercel.app/";
 // const clientsRoute = "http://localhost:3000/";
 
 function Item({operation, clientid}) {

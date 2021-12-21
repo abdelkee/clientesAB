@@ -3,8 +3,9 @@ import ClientForm from '../components/ClientForm';
 import AddBtn from "../components/AddBtn"
 import Grid from "../components/Grid"
 import TopBar from "../components/TopBar"
+import { clientsRoute } from "../utils/clientsRoute";
 
-const clientsRoute = "https://clientes-ab.vercel.app/";
+// const clientsRoute = "https://clientes-ab.vercel.app/";
 // const clientsRoute = "http://localhost:3000/";
 
 function Home({clientes}) {
