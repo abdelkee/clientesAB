@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { BiMessageAltX } from "react-icons/bi";
 
@@ -5,6 +6,7 @@ export const clientsRoute = "https://clientes-ab.vercel.app/";
 // export const clientsRoute = "http://localhost:3000/";
 
 function ClientForm({setFormVisibility}) {
+    const router = useRouter();
     const [clientName, setClientName] = useState('');
     const [operation, setOperation] = useState({title: '', tipo: 'Compro', monto: 0, modo: '', operationDate: new Date().toLocaleDateString()});
 
@@ -28,8 +30,9 @@ function ClientForm({setFormVisibility}) {
             body: JSON.stringify(body)
         }
 
-        const response = await fetch(clientsRoute + 'api/clients', options);
+        await fetch(clientsRoute + 'api/clients', options);
         setFormVisibility(false);
+        router.reload();
     }
 
     return (
@@ -86,7 +89,11 @@ function ClientForm({setFormVisibility}) {
                     </div>
                 </div>
                 
-                <button onClick={createClient}>Crear Cliente</button>
+                <button 
+                    disabled={clientName === '' || operation.title === '' || operation.tipo === '' || operation.monto < 1 || operation.modo === '' && true}
+                    onClick={createClient}>
+                        Crear Cliente
+                </button>
 
             </div>
         </div>

@@ -1,34 +1,75 @@
 
 .item-container {
+    position: relative;
     @include flex-between;
     background-color: white;
     padding: 8px 20px;
     border-radius: 8px;
     box-shadow: $form-shadow;
+    transition: all ease-in-out 200ms;
     
     h3 {
         font-size: 1.3rem;
         color: $accent-color;
     }
+
+    h5 {
+        color: grey;
+    }
+
+    section {
+        position: absolute;
+        right: -8px;
+        height: 130%;
+        @include flex-between(column);
+
+
+        span {
+            padding: 5px;
+            display: grid;
+            place-content: center;
+            border-radius: 8px;
+        }
+    }
+}
+
+.monto-date {
+    justify-self: flex-end;
+    @include flex-between(column);
+    gap: 4px;
+}
+
+.editar {
+    background-color: $accent-color;
+}
+
+.eliminar {
+    background-color: red;
 }
 
 .title-tipo {
     @include flex-between(column, flex-start);
     gap: 8px;
+    width: 50%;
 }
 
 .tipo {
-    padding: 2px 8px;
     display: inline-block;
     border-radius: 8px;
     color: white;
-    font-weight: 600;
+    font-weight: 800;
+    letter-spacing: 1px;
 }
 
 .compro {
-    background-color: $Compro-color;
+    color: $Compro-color;
 }
 
 .pago {
-    background-color: $pago-color;
+    color: $pago-color;
+}
+
+.item-scale {
+    transform: scale(1.03);
+    border: 2px solid $secondary-color;
 }

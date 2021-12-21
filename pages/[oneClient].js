@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import List from '../components/clients/List';
 import OperationBtn from '../components/clients/OperationBtn';
 import OperationForm from '../components/clients/operations/OperationForm';
+import { FormContext } from '../components/context/FormContext';
 import TopBar from '../components/TopBar';
 
 export const clientsRoute = "https://clientes-ab.vercel.app/";
@@ -35,15 +36,14 @@ export async function getStaticProps({params}) {
 }
 
 function ClientStatus({singleClient}) {
-
-    const [opFormVisibility, setOpFormVisibility] = useState(false);
+    const {opFormVisibility, dept} = useContext(FormContext); 
 
     return (
         <div>
-            <TopBar name={singleClient.cliente} amount={55.00}/>
-            <List operations={singleClient.operation}/>
-            <OperationBtn setOpFormVisibility={setOpFormVisibility}/>
-            {opFormVisibility && <OperationForm singleClient={singleClient} setOpFormVisibility={setOpFormVisibility}/>}
+            <TopBar name={singleClient.cliente} amount={dept}/>
+            <List singleClient={singleClient}/>
+            <OperationBtn />
+            {opFormVisibility && <OperationForm singleClient={singleClient}/>}
         </div>
     )
 }

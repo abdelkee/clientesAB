@@ -6,9 +6,9 @@ function TopBar({name, amount}) {
     const router = useRouter();
     return (
         <div className="topbar-container">
-            {name && <div onClick={router.back}><BiHomeHeart size={30} fill='white'/></div>}
-            <h3>{`${name} debe :`}</h3>
-            <h2>{`$ ${amount}`}</h2>
+            {name && <button className='home-icon' onClick={router.back}><BiHomeHeart size={30} fill='white'/></button>}
+            {name ? <h3>{`${name} me debe :`}</h3> : <h3>Los clientes que me deben</h3>}
+            {amount && <h2>{`$ ${amount}`}</h2>}
         </div>
     )
 }

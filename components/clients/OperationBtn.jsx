@@ -1,12 +1,20 @@
+import { useContext } from "react";
 import { BiAddToQueue } from "react-icons/bi";
+import { FormContext } from "../context/FormContext";
 
 
-function OperationBtn({setOpFormVisibility}) {
+function OperationBtn() {
+    const {setIsNewOperation, setOpFormVisibility} = useContext(FormContext);
+
+    function openOperationForm() {
+        setOpFormVisibility(true);
+        setIsNewOperation(true);
+    }
 
     return (
         <button 
             className={`operation-btn-container`}
-            onClick={() => setOpFormVisibility(true)}>
+            onClick={openOperationForm}>
                 <BiAddToQueue fill="white" size={26}/>
         </button>
     )

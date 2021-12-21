@@ -1,9 +1,9 @@
 
-@mixin flex-between($direction: row, $align: center) {
+@mixin flex-between($direction: row, $align: center, $justify: space-between) {
     display: flex;
     flex-direction: $direction;
     align-items: $align;
-    justify-content: space-between;
+    justify-content: $justify;
 }
 
 @mixin position-center($type) {
@@ -15,7 +15,7 @@
 
 @mixin grid-style($temp) {
     padding: 20px;
-    margin-bottom: 80px;
+    padding-bottom: 80px;
     margin-top: 40px;
     display: grid;
     grid-template-columns: $temp;

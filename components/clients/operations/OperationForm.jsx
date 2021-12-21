@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useRouter } from "next/router";
+import { useContext, useState } from "react";
 import { BiMessageAltX } from "react-icons/bi";
+import { FormContext } from "../../context/FormContext";
 
 export const clientsRoute = "https://clientes-ab.vercel.app/";
 // export const clientsRoute = "http://localhost:3000/";
 
-function OperationForm({setOpFormVisibility, singleClient}) {
+function OperationForm({singleClient}) {
+    const router = useRouter();
+    const {isNewOperation, setOpFormVisibility, operationId, setOperationId} = useContext(FormContext);
     const [operation, setOperation] = useState({title: '', tipo: '', monto: 0, modo: '', operationDate: new Date().toLocaleDateString()});
-    const clientName = singleClient.cliente;
 
     function handleOperation(e) {
         const {name, value} = e.target;
@@ -17,19 +20,26 @@ function OperationForm({setOpFormVisibility, singleClient}) {
     }
 
     async function anotarOperacion() {
-        const body = {
-            cliente: clientName,
+        const newOperation = {
+            cliente: singleClient.cliente,
             operation: operation
+        };
+        const updatedOperation = {
+            clientId: singleClient._id,
+            opId: operationId,
+            newVals: operation
         };
 
         const options = {
-            method: 'POST',
+            method: isNewOperation ? 'POST' : 'PATCH',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(body)
+            body: isNewOperation ? JSON.stringify(newOperation) : JSON.stringify(updatedOperation)
         }
 
-        const response = await fetch(clientsRoute + 'api/clients', options);
+        await fetch(clientsRoute + 'api/clients', options);
         setOpFormVisibility(false);
+        setOperationId('');
+        router.reload();
     }
 
     return (
@@ -40,8 +50,8 @@ function OperationForm({setOpFormVisibility, singleClient}) {
                     <BiMessageAltX size={30} fill="white"/>
                 </span>
                 <div>
-                    <h2>Nueva Operacion</h2>
-                    <h4>{`De ${clientName}`}</h4>
+                    {isNewOperation ? <h2>Nueva Operacion</h2> : <h2>Editar Operacion</h2>}
+                    <h4>{`De ${singleClient.cliente}`}</h4>
                 </div>
 
                 {/* Radio Tipo container */}
@@ -106,7 +116,11 @@ function OperationForm({setOpFormVisibility, singleClient}) {
                     
                 </div>
                 
-                <button onClick={anotarOperacion}>Anotar</button>
+                <button 
+                    disabled={operation.title === '' || operation.tipo === '' || operation.monto < 1 || operation.modo === '' && true}
+                    onClick={anotarOperacion}>
+                        {isNewOperation ? 'Anotar' : 'Actualizar'}
+                </button>
 
             </div>
         </div>
