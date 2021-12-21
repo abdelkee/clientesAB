@@ -6,23 +6,23 @@ import { FormContext } from '../components/context/FormContext';
 import TopBar from '../components/TopBar';
 import { clientsRoute } from "../utils/clientsRoute";
 
-export async function getStaticPaths() {
-    const clientsRes = await fetch(clientsRoute + 'api/clients');
-    const clientsData = await clientsRes.json();
+// export async function getStaticPaths() {
+//     const clientsRes = await fetch(clientsRoute + 'api/clients');
+//     const clientsData = await clientsRes.json();
 
-    const paths = clientsData.map(client => {
-        return {
-            params: {oneClient: client._id}
-        }
-    });
+//     const paths = clientsData.map(client => {
+//         return {
+//             params: {oneClient: client._id}
+//         }
+//     });
 
-    return {
-        paths,
-        fallback: false
-    }
-}
+//     return {
+//         paths,
+//         fallback: false
+//     }
+// }
 
-export async function getStaticProps({params}) {
+export async function getServerSideProps({params}) {
 
     const res = await fetch(clientsRoute + 'api/clients/' + params.oneClient);
 
