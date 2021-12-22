@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { BiMessageAltX } from "react-icons/bi";
+import { Animate } from "react-simple-animate";
 import { clientsRoute } from "../utils/clientsRoute";
 
 function ClientForm({setFormVisibility}) {
@@ -35,6 +36,7 @@ function ClientForm({setFormVisibility}) {
 
     return (
         <div className="form-blur">
+        <Animate play start={{opacity: 0}} end={{opacity: 1}}>
             <div className="form-container">
 
                 <span onClick={() => setFormVisibility(false)}>
@@ -55,7 +57,7 @@ function ClientForm({setFormVisibility}) {
                     onChange={(e) => handleOperation(e)} />
                 <input
                     type="number"
-                    placeholder="$ Monto"
+                    placeholder="$"
                     name="monto"
                     onChange={(e) => handleOperation(e)} />
 
@@ -94,6 +96,7 @@ function ClientForm({setFormVisibility}) {
                 </button>
 
             </div>
+        </Animate>
         </div>
     )
 }

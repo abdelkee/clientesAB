@@ -3,12 +3,15 @@
     @include flex-between(row, center, center);
     gap: 16px;
     padding-left: 20px;
-    position: sticky;
-    left: 0;
-    top: 0;
-    width: 100%;
+    position: fixed;
+    left: 50%;
+    top: 3%;
+    transform: translateX(-50%);
+    border-radius: 16px;
+    width: 95%;
     height: 70px;
     background-color: $primary-color;
+    box-shadow: $form-shadow;
     z-index: 1;
 
     h3, h2 {
@@ -19,17 +22,20 @@
 
 .home-icon {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
     display: grid;
     place-content: center;
-    height: 70px;
+    height: 60px;
+    width: 60px;
     padding: 0 14px 0 12px;
-    border-radius: 0 50% 50% 0;
+    border-radius: 50%;
     background-color: $accent-color;
     border: none;
 
     &:focus {
         background-color: $accent2-color;
     }
+
 }

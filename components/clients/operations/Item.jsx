@@ -1,8 +1,9 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import {BiPencil, BiTrashAlt} from 'react-icons/bi';
 import {useRouter} from "next/router";
 import { FormContext } from '../../context/FormContext';
 import { clientsRoute } from "../../../utils/clientsRoute";
+import { Animate } from 'react-simple-animate';
 
 // const clientsRoute = "https://clientes-ab.vercel.app/";
 // const clientsRoute = "http://localhost:3000/";
@@ -46,18 +47,20 @@ function Item({operation, clientid}) {
     }
 
     return (
+        <Animate play start={{opacity: 0}} end={{opacity: 1}}>
+        
         <div
             onClick={setOptionsToCurrent} 
             className={`item-container ${options === _id && 'item-scale'}`}>
                 <div className="title-tipo">
-                    <span className={`tipo ${tipo.toLowerCase()} ${options && 'toEdit'}`}>{tipo}</span>
-                    <h4 className={`${options && 'toEdit'}`}>{title}</h4>
+                    <span className={`tipo ${tipo.toLowerCase()}`}>{tipo}</span>
+                    <p>{title}</p>
                 </div>
                 
                 <div className='monto-date'>
-                    <h3 className={`${options && 'toEdit'}`}>$ {monto.toFixed(2)}</h3>
-                    <h5 className={`${options && 'toEdit'}`}>{modo}</h5>
-                    <h5>{operationDate}</h5>
+                    <h3>$ {monto.toFixed(2)}</h3>
+                    <h5 className={`${modo === 'Fiado' ? 'modo-fiado' : 'modo-cash-banco'}`}>{modo}</h5>
+                    <h5 className='op-date'>{operationDate}</h5>
                 </div>
 
                 {options === _id && <section className="options">
@@ -69,6 +72,7 @@ function Item({operation, clientid}) {
                         className="eliminar"><BiTrashAlt fill='white' size={18} /></span>
                 </section>}
         </div>
+        </Animate>
     )
 }
 

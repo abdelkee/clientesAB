@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useContext } from 'react';
 import Avatar from 'react-nice-avatar';
+import { Animate, AnimateGroup } from 'react-simple-animate';
 import { FormContext } from './context/FormContext';
 
 function ClientCard({cliente}) {
@@ -33,15 +34,15 @@ function ClientCard({cliente}) {
     }
 
     return (
-        
-        <div
-            onClick={open} 
-            className="card-container">
-                <Avatar style={{width: '75%', height: '50%'}} className="card-image" sex='woman' hairStyle='womanLong' isGradient={true}/>
-                <h4>{cliente.cliente}</h4>
-                <h3>{`$ ${calcularDeuda()}`}</h3>
-        </div>
-           
+        <Animate play start={{opacity: 0}} end={{opacity: 1}}>
+            <div
+                onClick={open} 
+                className="card-container">
+                    <Avatar style={{width: '75%', height: '50%'}} className="card-image" sex='woman' hairStyle='womanLong' isGradient={true}/>
+                    <h4>{cliente.cliente}</h4>
+                    <h3>{`$ ${calcularDeuda()}`}</h3>
+            </div>
+        </Animate>         
     )
 }
 

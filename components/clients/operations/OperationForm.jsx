@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { BiMessageAltX } from "react-icons/bi";
 import { FormContext } from "../../context/FormContext";
 import { clientsRoute } from "../../../utils/clientsRoute";
+import { Animate } from "react-simple-animate";
 
 function OperationForm({singleClient}) {
     const router = useRouter();
@@ -42,6 +43,8 @@ function OperationForm({singleClient}) {
 
     return (
         <div className="form-blur">
+        <Animate play start={{opacity: 0}} end={{opacity: 1}}>
+            
             <div className="form-container">
 
                 <span onClick={() => setOpFormVisibility(false)}>
@@ -80,7 +83,7 @@ function OperationForm({singleClient}) {
                     onChange={(e) => handleOperation(e)} />
                 <input
                     type="number"
-                    placeholder="$ Monto"
+                    placeholder="$"
                     name="monto"
                     onChange={(e) => handleOperation(e)} />
 
@@ -121,6 +124,7 @@ function OperationForm({singleClient}) {
                 </button>
 
             </div>
+        </Animate>
         </div>
     )
 }

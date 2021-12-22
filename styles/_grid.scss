@@ -1,4 +1,5 @@
 
 .grid-container {
     @include grid-style(repeat(3, 1fr));
+
 }
