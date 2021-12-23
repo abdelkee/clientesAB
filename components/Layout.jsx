@@ -5,9 +5,9 @@ function Layout({children}) {
     const [isNewOperation, setIsNewOperation] = useState(false);
     const [opFormVisibility, setOpFormVisibility] = useState(false);
     const [operationId, setOperationId] = useState('');
-    const [dept, setDept] = useState(0);
     const [options, setOptions] = useState('');
-
+    const [opDetails, setOpDetails] = useState({});
+    const [changes, setChanges] = useState(false);
 
     const appStore = {
         isNewOperation,
@@ -16,10 +16,12 @@ function Layout({children}) {
         setOpFormVisibility,
         operationId,
         setOperationId,
-        dept,
-        setDept,
         options,
-        setOptions
+        setOptions,
+        opDetails,
+        setOpDetails,
+        changes,
+        setChanges
     }
 
     return (

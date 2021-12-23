@@ -7,7 +7,8 @@ import { Animate } from "react-simple-animate";
 
 function OperationForm({singleClient}) {
     const router = useRouter();
-    const {isNewOperation, setOpFormVisibility, operationId, setOperationId} = useContext(FormContext);
+    const {isNewOperation, setOpFormVisibility, operationId, setOperationId, opDetails, setOpDetails} = useContext(FormContext);
+    
     const [operation, setOperation] = useState({title: '', tipo: '', monto: 0, modo: '', operationDate: new Date().toLocaleDateString()});
 
     function handleOperation(e) {
@@ -38,6 +39,7 @@ function OperationForm({singleClient}) {
         await fetch(clientsRoute + 'api/clients', options);
         setOpFormVisibility(false);
         setOperationId('');
+        setOpDetails({});
         router.reload();
     }
 
@@ -47,7 +49,7 @@ function OperationForm({singleClient}) {
             
             <div className="form-container">
 
-                <span onClick={() => setOpFormVisibility(false)}>
+                <span onClick={() => {setOpFormVisibility(false); setOpDetails({});}}>
                     <BiMessageAltX size={30} fill="white"/>
                 </span>
                 <div>
@@ -63,6 +65,7 @@ function OperationForm({singleClient}) {
                             type="radio"
                             name="tipo"
                             value="Compro"
+                            defaultChecked={opDetails.tipo === 'Compro' && true}
                             onChange={(e) => handleOperation(e)} />
                     </div>
                     <div>
@@ -72,6 +75,7 @@ function OperationForm({singleClient}) {
                             type="radio"
                             name="tipo"
                             value="Pago"
+                            defaultChecked={opDetails.tipo === 'Pago' && true}
                             onChange={(e) => handleOperation(e)} />
                     </div>
                 </div>
@@ -80,11 +84,13 @@ function OperationForm({singleClient}) {
                     type="text"
                     placeholder="Titulo"
                     name="title"
+                    value={opDetails && opDetails.title}
                     onChange={(e) => handleOperation(e)} />
                 <input
                     type="number"
                     placeholder="$"
                     name="monto"
+                    value={opDetails && opDetails.monto}
                     onChange={(e) => handleOperation(e)} />
 
                 {/* Radio Modo container */}
@@ -95,6 +101,7 @@ function OperationForm({singleClient}) {
                             type="radio"
                             name="modo"
                             value="Cash"
+                            defaultChecked={opDetails.modo === 'Cash' && true}
                             onChange={(e) => handleOperation(e)} />
                     </div>
                     <div>
@@ -104,6 +111,7 @@ function OperationForm({singleClient}) {
                             type="radio"
                             name="modo"
                             value="Fiado"
+                            defaultChecked={opDetails.modo === 'Fiado' && true}
                             onChange={(e) => handleOperation(e)} />
                     </div>
                     <div>
@@ -112,6 +120,7 @@ function OperationForm({singleClient}) {
                             type="radio"
                             name="modo"
                             value="Banco"
+                            defaultChecked={opDetails.modo === 'Banco' && true}
                             onChange={(e) => handleOperation(e)} />
                     </div>
                     

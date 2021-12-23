@@ -18,7 +18,7 @@
     @include position-center(absolute);
     @include flex-between(column);
     padding: 30px 8px;
-    max-width: 416px;
+    max-width: 416px * 0.8;
     width: 80%;
     background-color: $secondary-color;
     border-radius: 8px;
@@ -48,7 +48,7 @@
         background-color: $accent-color;
         padding: 3px 14px;
         font-size: 1.2rem;
-        border-radius: 16px;
+        border-radius: 4px;
         margin-bottom: 4px;
     }
 
@@ -93,4 +93,5 @@
     @include flex-between;
     width: 80%;
     padding: 8px 12px;
+
 }

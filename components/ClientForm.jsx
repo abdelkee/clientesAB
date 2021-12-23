@@ -85,6 +85,7 @@ function ClientForm({setFormVisibility}) {
                             type="radio"
                             name="modo"
                             value="Fiado"
+                            defaultChecked
                             onChange={(e) => handleOperation(e)} />
                     </div>
                 </div>

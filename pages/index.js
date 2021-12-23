@@ -5,8 +5,8 @@ import Grid from "../components/Grid"
 import TopBar from "../components/TopBar"
 import { clientsRoute } from "../utils/clientsRoute";
 
-function Home({clientes}) {
 
+function Home({clientes}) {
   const [formVisibility, setFormVisibility] = useState(false);
 
   return (

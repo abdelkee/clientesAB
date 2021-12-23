@@ -1,36 +1,41 @@
 
 .topbar-container {
-    @include flex-between(row, center, center);
+    @include flex-between(row, center, space-between);
     gap: 16px;
-    padding-left: 20px;
+    padding: 0 12px 0 72px;
     position: fixed;
     left: 50%;
     top: 3%;
     transform: translateX(-50%);
-    border-radius: 16px;
+    border-radius: 4px;
     width: 95%;
+    max-width: 416px * 0.95;
     height: 70px;
     background-color: $primary-color;
     box-shadow: $form-shadow;
+    border: 2px solid $primary-color;
     z-index: 1;
 
-    h3, h2 {
+    h3 {
         color: white;
-        font-size: 1.3rem;
+        font-weight: 600;
+    }
+
+    .el-monto {
+        font-size: 1.5rem;
     }
 }
 
 .home-icon {
     position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
+    top: 0;
+    left: 0;
     display: grid;
     place-content: center;
-    height: 60px;
+    height: 100%;
     width: 60px;
     padding: 0 14px 0 12px;
-    border-radius: 50%;
+    border-radius: 2px 0 0 2px;
     background-color: $accent-color;
     border: none;
 

@@ -5,6 +5,7 @@ import OperationForm from '../components/clients/operations/OperationForm';
 import { FormContext } from '../components/context/FormContext';
 import TopBar from '../components/TopBar';
 import { clientsRoute } from "../utils/clientsRoute";
+import { calcularDeuda } from '../utils/calcularDeuda';
 
 
 export async function getServerSideProps({params}) {
@@ -19,11 +20,11 @@ export async function getServerSideProps({params}) {
 }
 
 function ClientStatus({singleClient}) {
-    const {opFormVisibility, dept} = useContext(FormContext); 
+    const {opFormVisibility} = useContext(FormContext); 
 
     return (
         <div>
-            <TopBar name={singleClient.cliente} amount={dept}/>
+            <TopBar name={singleClient.cliente} amount={calcularDeuda(singleClient)}/>
             <List singleClient={singleClient}/>
             <OperationBtn />
             {opFormVisibility && <OperationForm singleClient={singleClient}/>}
