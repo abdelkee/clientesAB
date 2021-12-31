@@ -54,11 +54,6 @@ a {
   background: linear-gradient(to right, #21094E, #511281, #4CA1A3);
   -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
           box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  border-width: 1px;
-  border-style: solid;
-  -o-border-image: linear-gradient(to right, #4CA1A3, #511281) 1;
-     border-image: -webkit-gradient(linear, left top, right top, from(#4CA1A3), to(#511281)) 1;
-     border-image: linear-gradient(to right, #4CA1A3, #511281) 1;
   border-radius: 4px;
   z-index: 1;
 }
@@ -126,6 +121,7 @@ a {
           justify-content: space-between;
   -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
           box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  cursor: pointer;
 }
 
 .card-container .card-image {
@@ -395,6 +391,7 @@ a {
   -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
           box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   border: 1px solid gainsboro;
+  cursor: pointer;
   -webkit-transition: all ease 200ms;
   transition: all ease 200ms;
 }
@@ -524,7 +521,7 @@ a {
 .item-scale {
   -webkit-transform: scale(1.04) translateY(-8px);
           transform: scale(1.04) translateY(-8px);
-  border: 1px solid gray;
+  border: 2px solid gainsboro;
   -webkit-box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
           box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
