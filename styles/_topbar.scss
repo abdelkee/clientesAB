@@ -7,22 +7,28 @@
     left: 50%;
     top: 3%;
     transform: translateX(-50%);
-    border-radius: 4px;
     width: 95%;
     max-width: 416px * 0.95;
     height: 70px;
-    background-color: $primary-color;
+    background: rgb(33,9,78);
+    background: linear-gradient(to right, $primary-color, $secondary-color, $accent-color);
     box-shadow: $form-shadow;
-    border: 2px solid $primary-color;
+    border-width: 1px;
+    border-style: solid;
+    border-image: linear-gradient(to right, $accent-color, $secondary-color) 1;
+    border-radius: 4px;
     z-index: 1;
 
     h3 {
         color: white;
         font-weight: 600;
+        text-align: center;
+        line-height: 1.4rem;
     }
 
     .el-monto {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
+        width: 35%;
     }
 }
 

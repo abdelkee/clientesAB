@@ -5,8 +5,6 @@ import { FormContext } from '../../context/FormContext';
 import { clientsRoute } from "../../../utils/clientsRoute";
 import { Animate } from 'react-simple-animate';
 
-// const clientsRoute = "https://clientes-ab.vercel.app/";
-// const clientsRoute = "http://localhost:3000/";
 
 function Item({operation, clientid}) {
     const router = useRouter();
@@ -55,6 +53,7 @@ function Item({operation, clientid}) {
         <div
             onClick={setOptionsToCurrent} 
             className={`item-container ${options === _id && 'item-scale'}`}>
+                <h5 className={`${modo === 'Fiado' ? 'modo-fiado' : 'modo-cash-banco'}`}>{modo}</h5>
                 <div className="title-tipo">
                     <span className={`tipo ${tipo.toLowerCase()}`}>{tipo}</span>
                     <p>{title}</p>
@@ -62,7 +61,6 @@ function Item({operation, clientid}) {
                 
                 <div className='monto-date'>
                     <h3>$ {monto.toFixed(2)}</h3>
-                    <h5 className={`${modo === 'Fiado' ? 'modo-fiado' : 'modo-cash-banco'}`}>{modo}</h5>
                     <h5 className='op-date'>{operationDate}</h5>
                 </div>
 

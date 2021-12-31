@@ -1,11 +1,12 @@
 
 .item-container {
     position: relative;
-    @include flex-between;
+    @include flex-between(row, center, flex-end);
+    gap: 16px;
     background-color: white;
     padding: 8px 20px;
     border-radius: 8px;
-    box-shadow: $form-shadow;
+    box-shadow: $card-shadow;
     border: 1px solid gainsboro;
     transition: all ease 200ms;
     
@@ -22,7 +23,8 @@
     }
 
     p {
-        font-weight: 600;
+        font-weight: 500;
+        color: gray;
     }
 
     .op-date {
@@ -67,8 +69,7 @@
 
 .tipo {
     display: inline-block;
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 1px;
 
 }
@@ -81,6 +82,13 @@
     color: $pago-color;
 }
 
+.modo-fiado, .modo-cash-banco {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -10px;
+}
+
 .modo-fiado {
     background-color: orange;
 }
@@ -90,7 +98,7 @@
 }
 
 .item-scale {
-    transform: scale(1.03);
-    border: 2px solid gray;
-    box-shadow: $button-shadow;
+    transform: scale(1.04) translateY(-8px);
+    border: 1px solid gray;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }

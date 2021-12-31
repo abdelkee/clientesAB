@@ -9,13 +9,20 @@ function OperationForm({singleClient}) {
     const router = useRouter();
     const {isNewOperation, setOpFormVisibility, operationId, setOperationId, opDetails, setOpDetails} = useContext(FormContext);
     
-    const [operation, setOperation] = useState({title: '', tipo: '', monto: 0, modo: '', operationDate: new Date().toLocaleDateString()});
+    const [operation, setOperation] = useState(
+        {title: !isNewOperation ? opDetails.title : '', 
+        tipo: !isNewOperation ? opDetails.tipo : '', 
+        monto: !isNewOperation ? opDetails.monto : 0, 
+        modo: !isNewOperation ? opDetails.modo : '', 
+        operationDate: new Date().toLocaleDateString()
+    });
 
     function handleOperation(e) {
         const {name, value} = e.target;
+        console.log(name, value);
         setOperation(prev => ({
             ...prev,
-            [name]: value,
+            [name]: value,    
         }));
     }
 
@@ -84,13 +91,13 @@ function OperationForm({singleClient}) {
                     type="text"
                     placeholder="Titulo"
                     name="title"
-                    value={opDetails && opDetails.title}
+                    value={opDetails.title && operation.title}
                     onChange={(e) => handleOperation(e)} />
                 <input
                     type="number"
                     placeholder="$"
                     name="monto"
-                    value={opDetails && opDetails.monto}
+                    value={opDetails.monto && operation.monto}
                     onChange={(e) => handleOperation(e)} />
 
                 {/* Radio Modo container */}

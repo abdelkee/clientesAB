@@ -20,7 +20,7 @@
     padding: 30px 8px;
     max-width: 416px * 0.8;
     width: 80%;
-    background-color: $secondary-color;
+    background: linear-gradient(to right, $primary-color, #302b63, $secondary-color);
     border-radius: 8px;
     box-shadow: $form-shadow;
     gap: 16px;
